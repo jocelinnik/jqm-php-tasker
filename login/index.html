@@ -1,0 +1,63 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Mobile</title>
+    
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Tasker</h1>
+            <a href="./signup/" class="ui-btn ui-btn-right">Cadastrar</a>
+        </div>
+
+        <div data-role="content">
+            <form onsubmit="validarLogin()" method="post">
+                <div class="ui-field-contain">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                </div>
+
+                <input type="submit" value="Logar">
+            </form>
+        </div>
+    </div>
+
+    <div id="mensagem"></div>
+
+    <script src="../script.js"></script>
+    <script>
+        function validarLogin(){
+            let email = $("#email").val();
+            let senha = $("#password").val();
+
+            exibirModal("#mensagem", {
+                titulo: "Sucesso",
+                mensagem: "Olá, você logou com sucesso",
+                botao: "./"
+            });
+            /*$.ajax({
+                url: "./backend/doLogin.php",
+                method: "post",
+                data: {
+                    email: email,
+                    password: password
+                },
+                success: function(data){
+                    if(data.resultado==="sucesso"){
+
+                    }
+                }
+            });*/
+        }
+    </script>
+</body>
